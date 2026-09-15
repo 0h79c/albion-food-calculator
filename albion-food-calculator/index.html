@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Albion Food Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">ALBION ONLINE</p>
+        <h1>Food Crafting Calculator</h1>
+        <p class="subtitle">
+          Tính nguyên liệu, chi phí, lợi nhuận và Focus khi chế tạo thức ăn.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>1. Chọn công thức</h2>
+
+        <label for="foodSelect">Công thức food</label>
+        <select id="foodSelect"></select>
+
+        <div class="recipe-info" id="recipeInfo"></div>
+      </section>
+
+      <section class="panel">
+        <h2>2. Giá nguyên liệu</h2>
+
+        <div class="price-grid" id="ingredientInputs"></div>
+      </section>
+
+      <section class="panel">
+        <h2>3. Giá bán và Focus</h2>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="sellPrice">Giá bán mỗi food</label>
+            <input
+              id="sellPrice"
+              type="number"
+              min="0"
+              value="1000"
+              placeholder="Ví dụ: 1000"
+            />
+          </div>
+
+          <div class="field">
+            <label for="focusEnabled">Focus bonus</label>
+            <select id="focusEnabled">
+              <option value="yes">Có Focus - 56.5% nguyên liệu</option>
+              <option value="no">Không Focus - 100% nguyên liệu</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="taxRate">Thuế bán hàng (%)</label>
+            <input
+              id="taxRate"
+              type="number"
+              min="0"
+              max="100"
+              value="4"
+            />
+          </div>
+
+          <div class="field">
+            <label for="craftCount">Số lần craft</label>
+            <input
+              id="craftCount"
+              type="number"
+              min="1"
+              value="1"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>4. Chi phí Fish Sauce</h2>
+
+        <div class="sauce-grid">
+          <div class="sauce-card">
+            <h3>Basic Fish Sauce</h3>
+            <p>1 Seaweed + 15 Chopped Fish</p>
+            <strong id="basicSauceCost">0 silver</strong>
+          </div>
+
+          <div class="sauce-card">
+            <h3>Fancy Fish Sauce</h3>
+            <p>3 Seaweed + 45 Chopped Fish</p>
+            <strong id="fancySauceCost">0 silver</strong>
+          </div>
+
+          <div class="sauce-card">
+            <h3>Special Fish Sauce</h3>
+            <p>9 Seaweed + 135 Chopped Fish</p>
+            <strong id="specialSauceCost">0 silver</strong>
+          </div>
+        </div>
+
+        <div class="form-grid sauce-prices">
+          <div class="field">
+            <label for="seaweedPrice">Giá Seaweed</label>
+            <input id="seaweedPrice" type="number" min="0" value="10" />
+          </div>
+
+          <div class="field">
+            <label for="choppedFishPrice">Giá Chopped Fish</label>
+            <input id="choppedFishPrice" type="number" min="0" value="10" />
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-grid">
+        <div class="result-card">
+          <span>Chi phí craft</span>
+          <strong id="totalCost">0 silver</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Chi phí mỗi food</span>
+          <strong id="costPerFood">0 silver</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Doanh thu</span>
+          <strong id="revenue">0 silver</strong>
+        </div>
+
+        <div class="result-card highlight">
+          <span>Lợi nhuận</span>
+          <strong id="profit">0 silver</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Tỷ suất lợi nhuận</span>
+          <strong id="profitRate">0%</strong>
+        </div>
+
+        <div class="result-card">
+          <span>Sản lượng nhận được</span>
+          <strong id="outputCount">0 food</strong>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Chi tiết nguyên liệu</h2>
+        <div id="ingredientSummary" class="ingredient-summary"></div>
+      </section>
+    </main>
+
+    <footer>
+      Albion Food Calculator - GitHub Pages
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
